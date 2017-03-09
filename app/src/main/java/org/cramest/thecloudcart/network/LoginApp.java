@@ -33,15 +33,18 @@ public class LoginApp implements DataHandler {
         if(nome.equals("loginApp")){
             //Data conterra' il nome utente, quindi controlliamo di averlo salvato giusto
             if(success){
-                System.out.println("Nome utente e password corretti");
-                Intent i = new Intent(a, ListsActivity.class);
-                i.putExtra("username", Username);
-                i.putExtra("password", Password);
-                DataSaver.getInstance().saveDataString(a,"username",Username);
-                DataSaver.getInstance().saveDataString(a,"password",Password);
-                //System.out.println("Salvato nome utente e password : " + DataSaver.getInstance().getDataString(c,"username") + " - " + DataSaver.getInstance().getDataString(c,"password"));
-                a.startActivity(i);
-                a.finish();
+                if(nome.equals("loginApp")) {
+                    System.out.println("Nome utente e password corretti");
+                    Intent i = new Intent(a, ListsActivity.class);
+                    i.putExtra("username", Username);
+                    i.putExtra("password", Password);
+                    //Salviamo nella memoria i nostri dati
+                    DataSaver.getInstance().saveDataString(a, "username", Username);
+                    DataSaver.getInstance().saveDataString(a, "password", Password);
+                    //System.out.println("Salvato nome utente e password : " + DataSaver.getInstance().getDataString(c,"username") + " - " + DataSaver.getInstance().getDataString(c,"password"));
+                    a.startActivity(i);
+                    a.finish();
+                }
             }else{
                 Toast.makeText(a, "Errore : " + data, Toast.LENGTH_SHORT).show();
             }

@@ -10,22 +10,20 @@ import java.util.ArrayList;
 
 public class ListaProdotti {
 
-    private ListaProdotti instanza;
-    private ArrayList<Prodotto> prodotti;
-
-    private ListaProdotti(){
-
-    }
+    private static ArrayList<Prodotto> prodotti;
 
     private static void RecuperaProdotti(){
-
+        prodotti = new ArrayList<Prodotto>();
+        //TODO : Recupera i prodotti dal sito
     }
 
-    public ListaProdotti getInstanza(){
-        if(instanza == null){
-            instanza = new ListaProdotti();
+
+    public static Prodotto getProdottoFromID(int ID){
+        if(prodotti == null) {
+            RecuperaProdotti();
         }
-        return instanza;
+        //TODO : Da completare, deve cercarlo tramite ID e non tramite index dell'arraylist
+        return prodotti.get(ID);
     }
 
 }
