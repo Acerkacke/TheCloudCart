@@ -1,7 +1,9 @@
-package org.cramest.thecloudcart;
+package org.cramest.thecloudcart.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
+
+import org.cramest.thecloudcart.R;
 
 public class ProdottiActivity extends Activity {
 

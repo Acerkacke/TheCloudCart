@@ -1,10 +1,12 @@
-package org.cramest.thecloudcart;
+package org.cramest.thecloudcart.network;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import org.cramest.thecloudcart.activities.ListsActivity;
+import org.cramest.thecloudcart.network.Connettore;
+import org.cramest.thecloudcart.network.DataHandler;
 import org.cramest.utils.DataSaver;
 
 /**

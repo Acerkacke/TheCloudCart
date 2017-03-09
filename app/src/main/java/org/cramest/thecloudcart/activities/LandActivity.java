@@ -1,12 +1,13 @@
-package org.cramest.thecloudcart;
+package org.cramest.thecloudcart.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
+import org.cramest.thecloudcart.network.Connettore;
+import org.cramest.thecloudcart.network.LoginApp;
+import org.cramest.thecloudcart.R;
 import org.cramest.utils.DataSaver;
 
 public class LandActivity extends Activity {

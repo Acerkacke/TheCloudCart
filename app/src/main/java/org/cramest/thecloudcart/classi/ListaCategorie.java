@@ -1,4 +1,6 @@
-package org.cramest.thecloudcart;
+package org.cramest.thecloudcart.classi;
+
+import org.cramest.thecloudcart.classi.*;
 
 import java.util.ArrayList;
 
@@ -8,7 +10,7 @@ import java.util.ArrayList;
 
 public class ListaCategorie {
 
-    private static ArrayList<Categoria> categorie
+    private static ArrayList<Categoria> categorie;
 
     public static Categoria getCategoriaFromID(int ID){
         return categorie.get(ID);

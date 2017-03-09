@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name=".activities.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,16 +20,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LandActivity"
+            android:name=".activities.LandActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
         <activity
-            android:name=".ListsActivity"
+            android:name=".activities.ListsActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
         <activity
-            android:name=".ProdottiActivity"
+            android:name=".activities.ProdottiActivity"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
     </application>
 

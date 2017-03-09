@@ -1,4 +1,4 @@
-package org.cramest.thecloudcart;
+package org.cramest.thecloudcart.network;
 
 /**
  * Created by cremaluca on 03/06/2016.

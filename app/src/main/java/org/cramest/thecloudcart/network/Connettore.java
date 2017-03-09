@@ -1,14 +1,11 @@
-package org.cramest.thecloudcart;
+package org.cramest.thecloudcart.network;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.SystemClock;
 import android.util.Log;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,7 +14,6 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 
 /**
  * Created by cremaluca on 03/06/2016.
@@ -41,7 +37,7 @@ public class Connettore {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    public void GetDataFromWebsite(DataHandler handler,String nome,String nomeParametro,String valoreParametro){
+    public void GetDataFromWebsite(DataHandler handler, String nome, String nomeParametro, String valoreParametro){
         BackgroundTask task = new BackgroundTask(handler,nome, new String[]{nomeParametro}, new String[]{valoreParametro});
         task.execute();
     }

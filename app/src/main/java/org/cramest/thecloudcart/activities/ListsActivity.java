@@ -1,4 +1,4 @@
-package org.cramest.thecloudcart;
+package org.cramest.thecloudcart.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,7 +7,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ListsActivity extends Activity implements DataHandler{
+import org.cramest.thecloudcart.network.Connettore;
+import org.cramest.thecloudcart.network.DataHandler;
+import org.cramest.thecloudcart.R;
+import org.cramest.thecloudcart.network.WebsiteDataManager;
+
+public class ListsActivity extends Activity implements DataHandler {
 
     private String username;
     private String password;
