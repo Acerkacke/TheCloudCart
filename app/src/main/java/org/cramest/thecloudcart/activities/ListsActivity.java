@@ -36,7 +36,7 @@ public class ListsActivity extends Activity implements DataHandler {
     }
 
     @Override
-    public void HandleData(String nome, boolean successo,String data){
+    public Object HandleData(String nome, boolean successo,String data){
         if(successo) {
             if (nome.equals("liste")) {
                 String[] nomiListe = WebsiteDataManager.getNomiListeUtente(data);
@@ -47,5 +47,6 @@ public class ListsActivity extends Activity implements DataHandler {
         }else{
             Toast.makeText(this, "Errore : " + data, Toast.LENGTH_SHORT).show();
         }
+        return null;
     }
 }
