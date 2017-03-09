@@ -21,6 +21,7 @@ public class ListsActivity extends Activity implements DataHandler {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lists);
+        //recuperiamo nome utente e password dall'intent
         username = getIntent().getExtras().getString("username");
         password = getIntent().getExtras().getString("password");
 

@@ -16,12 +16,17 @@ public class LandActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         System.out.println("LANDACTIVITY - Username salvato : " + DataSaver.getInstance().getDataString(this,"username"));
+        //Controlliamo se c'è rete
         if(Connettore.getInstance(this).isNetworkAvailable()) {
+            //Se non ha già effettuato il login in un altro momento
             if (DataSaver.getInstance().getDataString(this, "username") == null) {
+                //Mandiamolo alla schermata del login in cui può inserire le credenziali
                 Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(i);
             } else {
+                //Abbiamo già nome utente e password
                 setContentView(R.layout.activity_land);
+                //recuperiamo nome utente e password dalla memoria e chiediamo al sito se sono giusti
                 String username = DataSaver.getInstance().getDataString(this, "username");
                 String password = DataSaver.getInstance().getDataString(this, "password");
                 new LoginApp(this, username, password);
@@ -32,10 +37,12 @@ public class LandActivity extends Activity {
             String password = DataSaver.getInstance().getDataString(this, "password");
 
             if(username != null) {
+                //Passiamo direttamente alla activity in cui mostriamo la lista
                 Intent i = new Intent(this, ListsActivity.class);
                 i.putExtra("username", username);
                 i.putExtra("password", password);
                 startActivity(i);
+                //impediamo di tornare indietro con finish()
                 finish();
             }else{
                 Toast.makeText(this,"Hai bisogno di un accesso ad internet per poter usare l'app",Toast.LENGTH_LONG);
