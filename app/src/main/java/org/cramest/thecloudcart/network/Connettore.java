@@ -133,12 +133,16 @@ public class Connettore {
 
         @Override
         protected void onPostExecute(String result) {
-            String[] risultati = result.split("%");
-            boolean success = false;
-            success = risultati[0].equals("OK");
-            System.out.println("res " + risultati[0] + " quindi success: " + success);
-            handler.HandleData(nome,success,risultati[1]);
-            super.onPostExecute(result);
+            if(result != null) {
+                String[] risultati = result.split("%");
+                boolean success = false;
+                success = risultati[0].equals("OK");
+                System.out.println("res " + risultati[0] + " quindi success: " + success);
+                handler.HandleData(nome, success, risultati[1]);
+                super.onPostExecute(result);
+            }else{
+                System.out.println("Result = null");
+            }
         }
     }
 }

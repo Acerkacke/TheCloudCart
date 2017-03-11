@@ -10,13 +10,15 @@ public class Prodotto {
     private String nome;
     private double prezzo;
     private String marca;
+    private String dimensione;
     private Categoria categoria;
 
-    public Prodotto(int ID,String nome, double prezzo, String marca, Categoria categoria) {
+    public Prodotto(int ID,String nome, double prezzo, String marca, String dimensione, Categoria categoria) {
         this.ID = ID;
         this.nome = nome;
         this.prezzo = prezzo;
         this.marca = marca;
+        this.dimensione = dimensione;
         this.categoria = categoria;
     }
 

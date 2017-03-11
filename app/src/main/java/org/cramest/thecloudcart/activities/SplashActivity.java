@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import org.cramest.thecloudcart.R;
 import org.cramest.thecloudcart.activities.LandActivity;
+import org.cramest.thecloudcart.classi.ListaCategorie;
 
 public class SplashActivity extends Activity {
 

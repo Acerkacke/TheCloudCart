@@ -37,8 +37,9 @@ public class WebsiteDataManager {
             String nome = strProdotto[1];
             double prezzo = Double.parseDouble(strProdotto[2]);
             String marca = strProdotto[3];
-            Categoria categoria = ListaCategorie.getCategoriaFromID(Integer.parseInt(strProdotto[4]));
-            prodotti[i] = new Prodotto(ID,nome,prezzo,marca,categoria);
+            String dimensione = strProdotto[4];
+            Categoria categoria = ListaCategorie.getCategoriaFromID(Integer.parseInt(strProdotto[5]));
+            prodotti[i] = new Prodotto(ID,nome,prezzo,marca,dimensione,categoria);
         }
         return  prodotti;
     }
@@ -52,9 +53,8 @@ public class WebsiteDataManager {
             Prodotto prodotto = ListaProdotti.getProdottoFromID(Integer.parseInt(strProdottoInLista[0]));
             int qta = Integer.parseInt(strProdottoInLista[1]);
             String descrizione = strProdottoInLista[2];
-            //Timestamp giorno = new Timestamp()
 
-            prodottiInLista[i] = new ProdottoInLista();
+            prodottiInLista[i] = new ProdottoInLista(prodotto,qta,descrizione);
         }
         return  prodottiInLista;
     }

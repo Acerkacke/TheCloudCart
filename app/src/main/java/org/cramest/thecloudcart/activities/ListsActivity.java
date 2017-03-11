@@ -7,6 +7,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.cramest.thecloudcart.classi.ListaCategorie;
+import org.cramest.thecloudcart.classi.ListaProdotti;
 import org.cramest.thecloudcart.network.Connettore;
 import org.cramest.thecloudcart.network.DataHandler;
 import org.cramest.thecloudcart.R;
@@ -27,8 +29,18 @@ public class ListsActivity extends Activity implements DataHandler {
         //recuperiamo il testo di benvenuto e mettiamo il nome dell'utente
         TextView textBenvenuto = (TextView) findViewById(R.id.textBenvenuto);
         textBenvenuto.setText("Benvenuto, " + username);
+        //Inizializziamo categorie e prodotti dell'utente
+        InizializzaApplicazione();
         //Carichiamo la lista
         CaricaLista();
+    }
+
+    private void InizializzaApplicazione(){
+        System.out.println("Recupero le categorie");
+        //recuperiamo le categorie
+        new ListaCategorie().recuperaCategorie(this);
+        //recuperiamo tutti i prodotti
+        new ListaProdotti().recuperaProdotti(this);
     }
 
     /** La richiesta delle liste della spesa dell'utente
@@ -36,7 +48,7 @@ public class ListsActivity extends Activity implements DataHandler {
     private void CaricaLista(){
         //richiesta = "userlist" & user = username
         String[] parametri = {"req","user"};
-        String[] valori = {"userLists",username};
+        String[] valori = {"getUserList",username};
         //Chiediamo al sito le liste
         Connettore.getInstance(this).GetDataFromWebsite(this,"listeSpesa",parametri,valori);
     }

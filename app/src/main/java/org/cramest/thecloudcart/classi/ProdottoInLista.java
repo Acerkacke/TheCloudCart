@@ -10,15 +10,11 @@ public class ProdottoInLista {
     private Prodotto prodotto;
     private int quantita;
     private String descrizione;
-    private Date data;
-    private boolean eStatoComprato;
 
-    public ProdottoInLista(Prodotto prodotto, int quantita, String descrizione, Date data, boolean eStatoComprato) {
+    public ProdottoInLista(Prodotto prodotto, int quantita, String descrizione) {
         this.prodotto = prodotto;
         this.quantita = quantita;
         this.descrizione = descrizione;
-        this.data = data;
-        this.eStatoComprato = eStatoComprato;
     }
 
     public Prodotto getProdotto() {
@@ -31,13 +27,5 @@ public class ProdottoInLista {
 
     public String getDescrizione() {
         return descrizione;
-    }
-
-    public Date getData() {
-        return data;
-    }
-
-    public boolean iseStatoComprato() {
-        return eStatoComprato;
     }
 }
