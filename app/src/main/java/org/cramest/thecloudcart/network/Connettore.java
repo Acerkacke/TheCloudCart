@@ -135,11 +135,15 @@ public class Connettore {
         protected void onPostExecute(String result) {
             if(result != null) {
                 String[] risultati = result.split("%");
-                boolean success = false;
-                success = risultati[0].equals("OK");
-                System.out.println("res " + risultati[0] + " quindi success: " + success);
-                handler.HandleData(nome, success, risultati[1]);
-                super.onPostExecute(result);
+                if(risultati.length > 1) {
+                    boolean success = false;
+                    success = risultati[0].equals("OK");
+                    System.out.println("res " + risultati[0] + " quindi success: " + success);
+                    handler.HandleData(nome, success, risultati[1]);
+                    super.onPostExecute(result);
+                }else{
+                    System.out.println("ERRORE NEL RESULT : " + result + " richiesta con nome : " + nome);
+                }
             }else{
                 System.out.println("Result = null");
             }

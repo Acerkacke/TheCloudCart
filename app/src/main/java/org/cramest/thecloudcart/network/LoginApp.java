@@ -25,11 +25,13 @@ public class LoginApp implements DataHandler {
         Username = username;
         Password = password;
         this.a = a;
+        System.out.println("LoginApp - Richiedo il login");
         Connettore.getInstance(a).GetDataFromWebsite(this,"loginApp",parametri,valori);
     }
 
     @Override
     public void HandleData(String nome,boolean success,String data) {
+        System.out.println("LoginApp - Pagina di login caricata");
         if(nome.equals("loginApp")){
             //Data conterra' il nome utente, quindi controlliamo di averlo salvato giusto
             if(success){

@@ -1,7 +1,6 @@
 package org.cramest.thecloudcart.classi;
 
 import android.content.Context;
-import android.provider.ContactsContract;
 
 import org.cramest.thecloudcart.network.Connettore;
 import org.cramest.thecloudcart.network.DataHandler;
@@ -29,8 +28,13 @@ public class ListaProdotti implements DataHandler{
 
     public static Prodotto getProdottoFromID(int ID){
         if(prodotti != null) {
-            //TODO : Da completare, deve cercarlo tramite ID e non tramite index dell'arraylist
-            return prodotti.get(ID);
+            //C# -> foreach (Prodotto prod in prodotti)
+            for(Prodotto prod : prodotti) {
+                if(prod.getID() == ID) {
+                    return prod;
+                }
+            }
+            return null;
         }
         return null;
     }

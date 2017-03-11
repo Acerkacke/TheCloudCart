@@ -14,8 +14,14 @@ public class WebsiteDataManager {
     final static String sepRighe = "§";
     final static String sepColonne = "♦";
 
-    public static String[] getNomiListeUtente(String data){
-        return data.split(sepRighe);
+    public static Lista[] getListeUtente(String data){
+        String[] strListe = data.split(sepRighe);
+        Lista[] liste = new Lista[strListe.length];
+        for(int i=0;i<strListe.length;i++){
+            String[] pezziCategoria = data.split(sepColonne);
+            liste[i] = new Lista(Integer.parseInt(pezziCategoria[0]),pezziCategoria[1]);
+        }
+        return  liste;
     }
 
     public static Categoria[] getCategorie(String data){
