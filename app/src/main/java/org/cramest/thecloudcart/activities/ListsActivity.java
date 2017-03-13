@@ -59,14 +59,14 @@ public class ListsActivity extends Activity implements DataHandler {
         String[] parametri = {"req","user"};
         String[] valori = {"getUserList",username};
         //Chiediamo al sito le liste
-        Connettore.getInstance(this).GetDataFromWebsite(this,"listeSpesa",parametri,valori);
+        Connettore.getInstance(this).GetDataFromWebsite(this,"listeSpesaMie",parametri,valori);
     }
 
     @Override
     public void HandleData(String nome, boolean successo,String data){
         if(successo) {
             //Controlliamo che siano tornati i miei dati e non altri
-            if (nome.equals("listeSpesa")) {
+            if (nome.equals("listeSpesaMie")) {
                 //Convertiamo i dati in liste
                 liste = new ArrayList<>(Arrays.asList(WebsiteDataManager.getListeUtente(data)));
                 //Inseriamo nel ListView le liste
@@ -82,6 +82,9 @@ public class ListsActivity extends Activity implements DataHandler {
                         startActivity(i);
                     }
                 });
+            }
+            if(nome.equals("listeSpesaCondivise")){
+
             }
         }else{
             Toast.makeText(this, "Errore : " + data, Toast.LENGTH_SHORT).show();

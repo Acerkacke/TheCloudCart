@@ -18,8 +18,8 @@ public class WebsiteDataManager {
         String[] strListe = data.split(sepRighe);
         Lista[] liste = new Lista[strListe.length];
         for(int i=0;i<strListe.length;i++){
-            String[] pezziCategoria = data.split(sepColonne);
-            liste[i] = new Lista(Integer.parseInt(pezziCategoria[0]),pezziCategoria[1]);
+            String[] pezziLista = strListe[i].split(sepColonne);
+            liste[i] = new Lista(Integer.parseInt(pezziLista[0]),pezziLista[1]);
         }
         return  liste;
     }
@@ -28,7 +28,7 @@ public class WebsiteDataManager {
         String[] strCategorie = data.split(sepRighe);
         Categoria[] categorie = new Categoria[strCategorie.length];
         for(int i=0;i<strCategorie.length;i++){
-            String[] pezziCategoria = data.split(sepColonne);
+            String[] pezziCategoria = strCategorie[i].split(sepColonne);
             categorie[i] = new Categoria(Integer.parseInt(pezziCategoria[0]),pezziCategoria[1]);
         }
         return  categorie;
@@ -55,10 +55,15 @@ public class WebsiteDataManager {
         ProdottoInLista[] prodottiInLista = new ProdottoInLista[strProdottiInLista.length];
         for(int i=0;i<strProdottiInLista.length;i++){
             String[] strProdottoInLista = strProdottiInLista[i].split(sepColonne);
-
+            System.out.println("IDProdotto : " + strProdottoInLista[0]);
             Prodotto prodotto = ListaProdotti.getProdottoFromID(Integer.parseInt(strProdottoInLista[0]));
+            System.out.println("Qta : " + strProdottoInLista[1]);
             int qta = Integer.parseInt(strProdottoInLista[1]);
-            String descrizione = strProdottoInLista[2];
+            String descrizione = "";
+            if(strProdottoInLista.length> 2) {
+                System.out.println("Desc : " + strProdottoInLista[2]);
+                descrizione = strProdottoInLista[2];
+            }
 
             prodottiInLista[i] = new ProdottoInLista(prodotto,qta,descrizione);
         }
